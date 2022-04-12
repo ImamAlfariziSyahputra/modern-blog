@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "imgUrl": "/images/1.jpg",
+      "category": "UI Design",
+      "date": "March 6, 2022",
+      "title": "Understanding color theory:  the color wheel and finding complementary colors",
+      "body": "Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.",
+      "ppUrl": "/ava/1.jpg",
+      "author": "Leslie Alexander",
+      "job": "UI Designer"
+    },
+    {
+      "id": 2,
+      "imgUrl": "/images/2.jpg",
+      "category": "Internet",
+      "date": "March 7, 2022",
+      "title": "How to design a product that can grow itself 10x in year",
+      "body": "Auctor Porta. Augue vitae diam mauris faucibus blandit elit per, feugiat leo dui orci. Etiam vestibulum. Nostra netus per conubia dolor.",
+      "ppUrl": "/ava/2.jpg",
+      "author": "Jenny Wilson",
+      "job": "Product Designer"
+    },
+    {
+      "id": 3,
+      "imgUrl": "/images/3.jpg",
+      "category": "9 to 5",
+      "date": "March 8, 2022",
+      "title": "The More Important the Work, the More Important the Rest",
+      "body": "Suitable Quality is determined by product users, clients or customers, not by society in general. For example, a low priced product may be viewed as having high.",
+      "ppUrl": "/ava/3.jpg",
+      "author": "Esther Howard",
+      "job": "Entrepreneur"
+    },
+    {
+      "id": 4,
+      "imgUrl": "/images/4.jpg",
+      "category": "Inspirations",
+      "date": "March 8, 2022",
+      "title": "Email Love - Email Inspiration, Templates and Discovery",
+      "body": "Consider that for a moment: everything we see around us is assumed to have had a cause and is contingent upon something else.",
+      "ppUrl": "/ava/4.jpg",
+      "author": "Robert Fox",
+      "job": "Front-end Engineer"
+    }
+  ]
+}
