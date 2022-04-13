@@ -52,7 +52,7 @@ export default function Header() {
           <SearchIcon className="md:!hidden !h-6 !w-6 !text-secondary hover:!cursor-pointer transition hover:!text-white" />
 
           {/* Search Input (Mobile) */}
-          <div className="absolute -bottom-10 z-10 w-full max-w-lg">
+          {/* <div className="absolute -bottom-10 z-10 w-full max-w-lg">
             <div className="flex items-center justify-between rounded-full bg-[#1F2937] py-2.5 px-5">
               <input
                 type="text"
@@ -63,7 +63,7 @@ export default function Header() {
               />
               <SearchIcon className="!h-4 !w-4 hover:!cursor-pointer hover:!opacity-75" />
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
 

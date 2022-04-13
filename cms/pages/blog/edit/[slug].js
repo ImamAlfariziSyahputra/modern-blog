@@ -17,6 +17,7 @@ import {
   useUpdatePostMutation,
 } from '@/redux/apis/postApi';
 import { wrapper } from '@/redux/store/store';
+import InputSlug from '@/components/forms/InputSlug';
 
 // const defaultValues = {
 //   title: '',
@@ -146,12 +147,12 @@ export default function EditBlog({ postApi }) {
           {/* Title */}
           <div className="">
             <Typography>Title</Typography>
-            <InputText name="title" />
+            <InputSlug name="title" subName="slug" />
           </div>
           {/* Slug */}
           <div className="">
             <Typography>Slug</Typography>
-            <InputText name="slug" />
+            <InputText name="slug" disabled />
           </div>
           {/* Category */}
           <div className="">

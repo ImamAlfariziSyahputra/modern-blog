@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Avatar, Typography, Button } from '@mui/material';
+import { Avatar, Typography, Button, TextField } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import InputText from '@/components/forms/InputText';
 import InputDropdown from '@/components/forms/InputDropdown';
@@ -11,6 +11,7 @@ import Image from 'next/image';
 import useMounted from '@/components/useMounted';
 import QuilljsEditor from '@/components/text-editor/QuilljsEditor';
 import InputFile from '@/components/forms/InputFile';
+import InputSlug from '@/components/forms/InputSlug';
 import { useAddPostMutation } from '@/redux/apis/postApi';
 
 const defaultValues = {
@@ -110,12 +111,12 @@ export default function AddBlog() {
           {/* Title */}
           <div className="">
             <Typography>Title</Typography>
-            <InputText name="title" />
+            <InputSlug name="title" subName="slug" />
           </div>
           {/* Slug */}
           <div className="">
             <Typography>Slug</Typography>
-            <InputText name="slug" />
+            <InputText name="slug" disabled />
           </div>
           {/* Category */}
           <div className="">
@@ -130,11 +131,11 @@ export default function AddBlog() {
               options={[
                 {
                   label: 'Published',
-                  value: true,
+                  value: 'published',
                 },
                 {
                   label: 'Draft',
-                  value: false,
+                  value: 'draft',
                 },
               ]}
             />

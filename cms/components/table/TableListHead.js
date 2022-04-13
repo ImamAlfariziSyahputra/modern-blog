@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // material
 import { visuallyHidden } from '@mui/utils';
 import {
@@ -8,6 +9,16 @@ import {
   TableHead,
   TableSortLabel,
 } from '@mui/material';
+
+TableListHead.propTypes = {
+  order: PropTypes.oneOf(['asc', 'desc']),
+  orderBy: PropTypes.string,
+  rowCount: PropTypes.number,
+  headLabel: PropTypes.array,
+  numSelected: PropTypes.number,
+  onRequestSort: PropTypes.func,
+  onSelectAllClick: PropTypes.func,
+};
 
 export default function TableListHead({
   order,

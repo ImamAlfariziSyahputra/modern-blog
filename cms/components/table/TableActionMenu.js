@@ -161,12 +161,14 @@ export default function TableActionMenu({ id, name }) {
                 setIsOpen(false);
                 setConfirmOpen(false);
               }}
+              color="secondary"
             >
               Cancel
             </Button>
             <LoadingButton
               onClick={handleSubmit(onDelete)}
               loading={isSubmitting}
+              color="secondary"
             >
               Agree
             </LoadingButton>

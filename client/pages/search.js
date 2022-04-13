@@ -41,14 +41,14 @@ export default function Home({ posts }) {
 }
 
 export async function getServerSideProps(ctx) {
-  const res = await fetch(`http://localhost:8000/posts`);
-  const posts = await res.json();
+  // const res = await fetch(`http://localhost:8000/posts`);
+  // const posts = await res.json();
 
-  console.log('posts => ', posts);
+  // console.log('posts => ', posts);
 
   return {
     props: {
-      posts,
+      posts: [],
     },
   };
 }
