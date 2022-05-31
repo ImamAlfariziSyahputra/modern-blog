@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import PostDetail from '../components/PostDetail';
+import Footer from '../components/layouts/Footer';
+import Navbar from '../components/layouts/Navbar';
+import PostDetail from '../components/post/PostDetail';
 import { useGetPostQuery } from '@/redux/apis/postApi';
+import { useGetCommentsByPostQuery } from '@/redux/apis/commentApi';
 import LoadingBox from '@/components/box/LoadingBox';
+import CommentContainer from '@/components/comment/CommentContainer';
 
 export default function PostId() {
   const router = useRouter();
@@ -13,7 +15,11 @@ export default function PostId() {
   } = router;
 
   const { data: post, isSuccess, isError, isLoading } = useGetPostQuery(slug);
-  console.log('post => ', post);
+  const commentApi = useGetCommentsByPostQuery(slug);
+  const comments = commentApi.data?.comments;
+  const replyComments = commentApi.data?.replyComments;
+  // const [activeComment, setActiveComment] = useState(null);
+
   return (
     <div className="h-screen overflow-y-scroll bg-primary text-white">
       <Navbar />
@@ -21,6 +27,12 @@ export default function PostId() {
       {isLoading ? <LoadingBox /> : null}
       {isError ? 'Error..' : null}
       {isSuccess && <PostDetail {...post} />}
+
+      <CommentContainer
+        postSlug={slug}
+        comments={comments}
+        replyComments={replyComments}
+      />
 
       <Footer />
     </div>

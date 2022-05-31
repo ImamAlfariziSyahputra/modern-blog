@@ -1,5 +1,5 @@
 const dbConfig = require('../config/dbConfig');
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Op } = require('sequelize');
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
@@ -22,21 +22,50 @@ const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
+db.Op = Op;
 
 db.users = require('./userModel.js')(sequelize, DataTypes);
 db.posts = require('./postModel.js')(sequelize, DataTypes);
+db.comments = require('./commentModel.js')(sequelize, DataTypes);
 
+//! User Has Many Post
 db.users.hasMany(db.posts, {
-  as: 'post',
-  foreignKey: { allowNull: false, name: 'author' },
+  foreignKey: { name: 'author', allowNull: false },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
 });
 
 db.posts.belongsTo(db.users, {
-  as: 'user',
-  foreignKey: { allowNull: false, name: 'author' },
+  foreignKey: { name: 'author', allowNull: false },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
 });
 
-db.sequelize.sync({ force: false }).then(() => {
+//! User Has Many Comments
+//! Post Has Many Comments
+db.users.hasMany(db.comments, {
+  foreignKey: { name: 'userId', allowNull: false },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
+});
+db.posts.hasMany(db.comments, {
+  foreignKey: { name: 'postId', allowNull: false },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
+});
+
+db.comments.belongsTo(db.users, {
+  foreignKey: { name: 'userId', allowNull: false },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
+});
+db.comments.belongsTo(db.posts, {
+  foreignKey: { name: 'postId', allowNull: false },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
+});
+
+db.sequelize.sync().then(() => {
   console.log('Re-sync DB is done!');
 });
 

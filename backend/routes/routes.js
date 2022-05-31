@@ -1,4 +1,4 @@
-const { post, user } = require('../controllers');
+const { post, user, comment } = require('../controllers');
 
 const router = require('express').Router();
 
@@ -15,5 +15,12 @@ router.get('/get/post/:slug', post.getPostBySlug);
 router.post('/create/post', post.uploadImage, post.addPost);
 router.put('/update/post/:slug', post.uploadImage, post.updatePost);
 router.delete('/delete/post/:slug', post.deletePost);
+
+//! Comment
+router.get('/get/comment', comment.getComments);
+router.get('/get/comment-by-slug/:slug', comment.getCommentsByPost);
+router.post('/create/comment/:slug', comment.addComment);
+router.patch('/update/comment/:id', comment.updateComment);
+router.delete('/delete/comment/:id', comment.deleteComment);
 
 module.exports = router;

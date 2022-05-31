@@ -1,9 +1,9 @@
 import { Fragment } from 'react';
-import FeaturedPost from '../components/FeaturedPost';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import PostContainer from '../components/PostContainer';
-import Post from '../components/Post';
+import FeaturedPost from '../components/post/FeaturedPost';
+import Footer from '../components/layouts/Footer';
+import Navbar from '../components/layouts/Navbar';
+import PostContainer from '../components/post/PostContainer';
+import Post from '../components/post/Post';
 
 export default function Home({ posts }) {
   console.log('posts => ', posts);

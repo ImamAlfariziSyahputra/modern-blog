@@ -54,6 +54,7 @@ export default function PostDetail({
           className=""
           layout="fill"
           objectFit="cover"
+          priority
         />
       </div>
 
