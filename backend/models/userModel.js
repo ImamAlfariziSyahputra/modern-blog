@@ -8,7 +8,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
+      validate: {
+        isEmail: {
+          msg: 'Invalid "Email" format!',
+        },
+      },
     },
     password: {
       type: DataTypes.STRING,
@@ -19,6 +25,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     image: {
+      type: DataTypes.STRING,
+    },
+    refreshToken: {
       type: DataTypes.STRING,
     },
   });

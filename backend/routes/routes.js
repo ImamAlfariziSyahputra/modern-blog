@@ -1,11 +1,17 @@
-const { post, user, comment } = require('../controllers');
-
 const router = require('express').Router();
+const { post, user, comment, auth } = require('../controllers');
+const verifyJwt = require('../middlewares/verifyJwt');
+
+//! Authentication
+router.post('/register', auth.register);
+router.post('/login', auth.login);
+router.get('/refresh-token', auth.refreshToken);
+router.get('/logout', auth.logout);
 
 //! User
-router.get('/get/user', user.getUsers);
+router.get('/get/user', verifyJwt, user.getUsers);
 router.get('/get/user/:email', user.getUser);
-router.post('/register', user.register);
+// router.post('/register', user.register);
 router.patch('/update/user/:email', user.uploadAvatar, user.updateUser);
 
 //! Post
