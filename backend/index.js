@@ -6,8 +6,12 @@ require('dotenv').config();
 const app = express();
 
 let corsOptions = {
-  origin: '*',
+  // origin: '*',
+  origin: function (origin, callback) {
+    return callback(null, true);
+  },
   credentials: true,
+  optionsSuccessStatus: 200,
 };
 
 // Middlewares

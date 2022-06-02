@@ -1,5 +1,5 @@
 const dbConfig = require('../config/dbConfig');
-const { Sequelize, DataTypes, Op } = require('sequelize');
+const { Sequelize, DataTypes, Op, literal } = require('sequelize');
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
@@ -24,7 +24,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.Op = Op;
 
-db.users = require('./userModel.js')(sequelize, DataTypes);
+db.users = require('./userModel.js')(sequelize, DataTypes, literal);
 db.posts = require('./postModel.js')(sequelize, DataTypes);
 db.comments = require('./commentModel.js')(sequelize, DataTypes);
 

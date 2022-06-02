@@ -6,7 +6,7 @@ export default function SideLogo() {
       <div className="flex items-center space-x-3">
         <div className="relative w-9 h-6">
           <Image
-            src="https://pixinvent.com/demo/vuexy-react-admin-dashboard-template/demo-1/static/media/logo.86b72fab.svg"
+            src="https://pixinvent.com/demo/vuexy-react-admin-dashboard-template/demo-1/static/media/logo.f03f8d4d.svg"
             alt="Logo"
             layout="fill"
             objectFit="cover"
